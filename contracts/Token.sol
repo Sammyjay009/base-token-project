@@ -41,6 +41,7 @@ contract Token is ERC20 {
         return super.transfer(to, amount);
     }
 
+// Maximum tokens per transfer
     function setTransferLimit(uint256 newLimit) public onlyOwner {
         transferLimit = newLimit;
     }
