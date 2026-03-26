@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/Sammyjay009/base-token-project#readme",
   "devDependencies": {
-    "hardhat": "^3.2.0"
+    "hardhat": "^2.28.6"
   }
 }
