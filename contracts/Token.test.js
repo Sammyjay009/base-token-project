@@ -24,3 +24,8 @@ it("should burn tokens from caller", async function () {
   await token.burn(50);
   expect(await token.balanceOf(owner.address)).to.equal(50);
 });
+
+it("should revert if non-owner mints", async function () {
+  const { token, user } = await loadFixture(deployToken);
+  await expect(token.connect(user).mint(user.address, 100)).to.be.revertedWith("Not owner");
+});
