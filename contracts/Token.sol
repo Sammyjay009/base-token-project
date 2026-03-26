@@ -26,6 +26,9 @@ contract Token is ERC20 {
         _;
     }
 
+/// @notice Mints new tokens to a given address
+/// @param to The recipient address
+/// @param amount The number of tokens to mint
     function mint(address to, uint256 amount) public onlyOwner whenNotPaused {
         _mint(to, amount);
         emit Minted(to, amount);
