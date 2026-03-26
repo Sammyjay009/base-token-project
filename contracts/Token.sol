@@ -11,6 +11,7 @@ contract Token is ERC20 {
     event Minted(address indexed to, uint256 amount);
     event Burned(address indexed from, uint256 amount);
 
+/// @notice Deploys the token and sets the owner
     constructor() ERC20("SammyToken", "SMT") {
         owner = msg.sender;
         transferLimit = 1000 * 10 ** decimals();
