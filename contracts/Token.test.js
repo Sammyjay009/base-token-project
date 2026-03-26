@@ -29,3 +29,10 @@ it("should revert if non-owner mints", async function () {
   const { token, user } = await loadFixture(deployToken);
   await expect(token.connect(user).mint(user.address, 100)).to.be.revertedWith("Not owner");
 });
+
+it("should block transfer when paused", async function () {
+  const { token, owner, user } = await loadFixture(deployToken);
+  await token.mint(owner.address, 500);
+  await token.setPaused(true);
+  await expect(token.transfer(user.address, 10)).to.be.revertedWith("Contract is paused");
+});
