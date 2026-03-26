@@ -20,13 +20,14 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 contract Token is ERC20 {
     address public owner;
 
-    constructor() ERC20("SammyToken", "SMT") {
+    constructor(transferLimit = 1000 * 10 ** decimals();) ERC20("SammyToken", "SMT") {
         owner = msg.sender;
     }
 
 modifier onlyOwner() {
     require(msg.sender == owner, "Not owner");
     _;
+    uint256 public transferLimit;
 }
 
     function mint(address to, uint256 amount) public onlyOwner {
