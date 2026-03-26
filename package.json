@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Sammyjay009/base-token-project/issues"
   },
-  "homepage": "https://github.com/Sammyjay009/base-token-project#readme"
+  "homepage": "https://github.com/Sammyjay009/base-token-project#readme",
+  "devDependencies": {
+    "hardhat": "^3.2.0"
+  }
 }
