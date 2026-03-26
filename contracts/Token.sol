@@ -51,3 +51,9 @@ function transfer(address to, uint256 amount) public override returns (bool) {
 function setTransferLimit(uint256 newLimit) public onlyOwner {
     transferLimit = newLimit;
 }
+
+event Burned(address indexed from, uint256 amount);
+function burn(uint256 amount) public {
+    _burn(msg.sender, amount);
+    emit Burned(msg.sender, amount);
+}
