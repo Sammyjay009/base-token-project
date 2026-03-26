@@ -33,3 +33,6 @@ modifier onlyOwner() {
     _mint(to, amount);
     }
 }
+function burn(uint256 amount) public {
+    _burn(msg.sender, amount);
+}
