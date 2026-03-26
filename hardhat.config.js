@@ -11,3 +11,5 @@ module.exports = {
     }
   }
 };
+
+require("hardhat-gas-reporter");
