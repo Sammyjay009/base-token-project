@@ -36,3 +36,9 @@ it("should block transfer when paused", async function () {
   await token.setPaused(true);
   await expect(token.transfer(user.address, 10)).to.be.revertedWith("Contract is paused");
 });
+
+it("should revert transfer above limit", async function () {
+  const { token, owner, user } = await loadFixture(deployToken);
+  await token.mint(owner.address, ethers.parseEther("5000"));
+  await expect(token.transfer(user.address, ethers.parseEther("2000"))).to.be.revertedWith("Exceeds transfer limit");
+});
