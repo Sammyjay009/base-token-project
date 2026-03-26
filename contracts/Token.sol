@@ -21,5 +21,5 @@ contract Token is ERC20 {
     constructor() ERC20("SammyToken", "SMT") {}
 }
 function mint(address to, uint256 amount) public {
-    // coming soon
+    _mint(to, amount);
 }
