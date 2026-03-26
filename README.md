@@ -24,3 +24,11 @@ A simple ERC-20 token and Vault contract deployed on Base (Ethereum L2).
 | Network | Address |
 |---|---|
 | Base Sepolia | `0xYourAddressHere` |
+
+## How it works
+
+1. Owner deploys the Token contract
+2. Owner mints tokens to any address
+3. Users can transfer tokens within the transfer limit
+4. Owner can pause all transfers at any time
+5. Users can burn their own tokens
