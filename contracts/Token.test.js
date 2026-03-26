@@ -42,3 +42,8 @@ it("should revert transfer above limit", async function () {
   await token.mint(owner.address, ethers.parseEther("5000"));
   await expect(token.transfer(user.address, ethers.parseEther("2000"))).to.be.revertedWith("Exceeds transfer limit");
 });
+
+it("should emit Minted event", async function () {
+  const { token, owner } = await loadFixture(deployToken);
+  await expect(token.mint(owner.address, 100)).to.emit(token, "Minted").withArgs(owner.address, 100);
+});
