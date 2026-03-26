@@ -4,7 +4,8 @@
   "description": "A simple ERC-20 token and Vault contract deployed on Base (Ethereum L2).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "test": "npx hardhat test"
+}
   },
   "repository": {
     "type": "git",
