@@ -17,3 +17,10 @@ it("should mint tokens to owner", async function () {
   await token.mint(owner.address, 100);
   expect(await token.balanceOf(owner.address)).to.equal(100);
 });
+
+it("should burn tokens from caller", async function () {
+  const { token, owner } = await loadFixture(deployToken);
+  await token.mint(owner.address, 100);
+  await token.burn(50);
+  expect(await token.balanceOf(owner.address)).to.equal(50);
+});
