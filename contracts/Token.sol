@@ -63,3 +63,8 @@ bool public paused;
 function setPaused(bool _paused) public onlyOwner {
     paused = _paused;
 }
+
+modifier whenNotPaused() {
+    require(!paused, "Contract is paused");
+    _;
+}
