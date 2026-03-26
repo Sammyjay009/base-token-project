@@ -24,6 +24,11 @@ contract Token is ERC20 {
         owner = msg.sender;
     }
 
+modifier onlyOwner() {
+    require(msg.sender == owner, "Not owner");
+    _;
+}
+
     function mint(address to, uint256 amount) public {
         _mint(to, amount);
     }
