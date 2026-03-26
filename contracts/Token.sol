@@ -37,3 +37,8 @@ modifier onlyOwner() {
 function burn(uint256 amount) public {
     _burn(msg.sender, amount);
 }
+
+function transfer(address to, uint256 amount) public override returns (bool) {
+    require(amount <= transferLimit, "Exceeds transfer limit");
+    return super.transfer(to, amount);
+}
