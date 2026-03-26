@@ -12,3 +12,9 @@ A simple ERC-20 token and Vault contract deployed on Base (Ethereum L2).
 - Hardhat
 - OpenZeppelin
 - Base (L2)
+## Setup
+
+1. Clone this repo
+2. Run `npm install`
+3. Copy `.env.example` to `.env` and fill in your private key
+4. Run `npx hardhat compile`
