@@ -70,3 +70,4 @@ modifier whenNotPaused() {
 }
 
 function transfer(address to, uint256 amount) public override whenNotPaused returns (bool) 
+function mint(address to, uint256 amount) public onlyOwner whenNotPaused 
