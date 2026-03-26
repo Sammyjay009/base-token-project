@@ -42,3 +42,6 @@ function transfer(address to, uint256 amount) public override returns (bool) {
     require(amount <= transferLimit, "Exceeds transfer limit");
     return super.transfer(to, amount);
 }
+function setTransferLimit(uint256 newLimit) public onlyOwner {
+    transferLimit = newLimit;
+}
