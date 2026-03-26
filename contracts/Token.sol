@@ -57,3 +57,9 @@ function burn(uint256 amount) public {
     _burn(msg.sender, amount);
     emit Burned(msg.sender, amount);
 }
+
+bool public paused;
+
+function setPaused(bool _paused) public onlyOwner {
+    paused = _paused;
+}
