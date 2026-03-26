@@ -14,7 +14,7 @@ contract Token is ERC20 {
     constructor() ERC20("SammyToken", "SMT") {
         owner = msg.sender;
         transferLimit = 1000 * 10 ** decimals();
-    }
+    } "Token"
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Not owner");
