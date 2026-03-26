@@ -34,6 +34,8 @@ contract Token is ERC20 {
         emit Minted(to, amount);
     }
 
+/// @notice Burns tokens from the caller's balance
+/// @param amount The number of tokens to burn
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
         emit Burned(msg.sender, amount);
