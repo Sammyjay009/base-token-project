@@ -18,3 +18,9 @@ A simple ERC-20 token and Vault contract deployed on Base (Ethereum L2).
 2. Run `npm install`
 3. Copy `.env.example` to `.env` and fill in your private key
 4. Run `npx hardhat compile`
+
+## Deployments
+
+| Network | Address |
+|---|---|
+| Base Sepolia | `0xYourAddressHere` |
