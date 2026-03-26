@@ -68,3 +68,5 @@ modifier whenNotPaused() {
     require(!paused, "Contract is paused");
     _;
 }
+
+function transfer(address to, uint256 amount) public override whenNotPaused returns (bool) 
