@@ -13,6 +13,12 @@
 <p>Balance: <span id="balance">-</span></p>
 <input id="mintAmount" type="number" placeholder="Amount to mint" />
 <button id="mintBtn">Mint</button>
+document.getElementById("mintBtn").onclick = async () => {
+  const amount = document.getElementById("mintAmount").value;
+  const tx = await token.mint(await signer.getAddress(), ethers.parseEther(amount));
+  await tx.wait();
+  alert("Minted successfully!");
+};
 
 <script>
   async function updateBalance(address) {
