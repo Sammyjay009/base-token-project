@@ -1,5 +1,8 @@
 # Base Token Project
 
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Network](https://img.shields.io/badge/network-Base%20Sepolia-blue)
+
 A simple ERC-20 token and Vault contract deployed on Base (Ethereum L2).
 
 ## What this project does
