@@ -15,9 +15,18 @@
 <button id="mintBtn">Mint</button>
 
 <script>
+  async function updateBalance(address) {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const balanceBigInt = await provider.getBalance(address);
+    const balanceEth = ethers.formatEther(balanceBigInt);
+    document.getElementById("balance").textContent = parseFloat(balanceEth).toFixed(6);
+  }
+
   document.getElementById("connectBtn").onclick = async () => {
     const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-    document.getElementById("walletAddress").textContent = "Connected: " + accounts[0];
+    const address = accounts[0];
+    document.getElementById("walletAddress").textContent = "Connected: " + address;
+    await updateBalance(address);
   };
 </script>
 </body>
