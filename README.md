@@ -32,3 +32,8 @@ A simple ERC-20 token and Vault contract deployed on Base (Ethereum L2).
 3. Users can transfer tokens within the transfer limit
 4. Owner can pause all transfers at any time
 5. Users can burn their own tokens
+
+## Security
+
+This project is unaudited and for educational purposes only.
+Do not use with real funds without a professional audit.
