@@ -22,3 +22,5 @@ contract Vault {
 function withdraw(uint256 amount) public {
     token.transfer(msg.sender, amount);
 }
+
+mapping(address => uint256) public balances;
