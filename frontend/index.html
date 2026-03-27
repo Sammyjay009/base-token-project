@@ -10,5 +10,12 @@
   <h1>Base Token App</h1>
   <button id="connectBtn">Connect Wallet</button>
 <p id="walletAddress">Not connected</p>
+
+<script>
+  document.getElementById("connectBtn").onclick = async () => {
+    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+    document.getElementById("walletAddress").textContent = "Connected: " + accounts[0];
+  };
+</script>
 </body>
 </html>
