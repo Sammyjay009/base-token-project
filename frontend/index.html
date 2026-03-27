@@ -19,6 +19,10 @@ document.getElementById("mintBtn").onclick = async () => {
   await tx.wait();
   alert("Minted successfully!");
 };
+<p id="status"></p>
+document.getElementById("status").textContent = "Transaction pending...";
+await tx.wait();
+document.getElementById("status").textContent = "Success!";
 
 <script>
   async function updateBalance(address) {
