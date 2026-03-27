@@ -47,3 +47,8 @@ it("should emit Minted event", async function () {
   const { token, owner } = await loadFixture(deployToken);
   await expect(token.mint(owner.address, 100)).to.emit(token, "Minted").withArgs(owner.address, 100);
 });
+it("should not burn more than balance", async function () {
+  const { token, owner } = await loadFixture(deployToken);
+  await token.mint(owner.address, 100);
+  await expect(token.burn(200)).to.be.reverted;
+});
