@@ -14,12 +14,16 @@ contract Vault {
         token = IERC20(_token);
     }
 
+/// @notice Deposits tokens into the vault
+/// @param amount Number of tokens to deposit
     function deposit(uint256 amount) public {
     token.transferFrom(msg.sender, address(this), amount);
     balances[msg.sender] += amount;
     }
 }
 
+/// @notice Withdraws tokens from the vault
+/// @param amount Number of tokens to withdraw
 function withdraw(uint256 amount) public {
     require(balances[msg.sender] >= amount, "Insufficient balance");
     balances[msg.sender] -= amount;
