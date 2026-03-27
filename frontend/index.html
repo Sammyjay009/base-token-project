@@ -33,6 +33,14 @@ document.getElementById("depositBtn").onclick = async () => {
   await depositTx.wait();
   alert("Deposited!");
 };
+<input id="withdrawAmount" type="number" placeholder="Amount to withdraw" />
+<button id="withdrawBtn">Withdraw</button>
+document.getElementById("withdrawBtn").onclick = async () => {
+  const amount = ethers.parseEther(document.getElementById("withdrawAmount").value);
+  const tx = await vault.withdraw(amount);
+  await tx.wait();
+  alert("Withdrawn!");
+};
 
 <script>
   async function updateBalance(address) {
