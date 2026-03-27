@@ -9,3 +9,6 @@ const network = await provider.getNetwork();
 if (network.chainId !== 84532n) {
   document.getElementById("status").textContent = "Please switch to Base Sepolia";
 }
+if (!window.ethereum) {
+  document.getElementById("status").textContent = "Please install MetaMask to use this app.";
+}
