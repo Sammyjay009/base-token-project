@@ -47,3 +47,8 @@ await vault.deposit(ethers.parseEther("50"));
 
 This project is unaudited and for educational purposes only.
 Do not use with real funds without a professional audit.
+
+## Frontend
+
+Open `frontend/index.html` in your browser with MetaMask installed.
+Connect your wallet, switch to Base Sepolia, and interact with the contracts.
