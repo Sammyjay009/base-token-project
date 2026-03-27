@@ -12,3 +12,11 @@ describe("Vault", function () {
     return { token, vault, owner, user };
   }
 });
+
+it("should record deposit balance", async function () {
+  const { token, vault, owner } = await loadFixture(deployVault);
+  await token.mint(owner.address, 500);
+  await token.approve(await vault.getAddress(), 500);
+  await vault.deposit(100);
+  expect(await vault.balances(owner.address)).to.equal(100);
+});
