@@ -11,7 +11,7 @@ contract Token is ERC20 {
     event Minted(address indexed to, uint256 amount);
     event Burned(address indexed from, uint256 amount);
 
-/// @notice Deploys the token and sets the owner
+    /// @notice Deploys the token and sets the owner
     constructor() ERC20("SammyToken", "SMT") {
         owner = msg.sender;
         transferLimit = 1000 * 10 ** decimals();
@@ -27,27 +27,30 @@ contract Token is ERC20 {
         _;
     }
 
-/// @notice Mints new tokens to a given address
-/// @param to The recipient address
-/// @param amount The number of tokens to mint
+    /// @notice Mints new tokens to a given address
+    /// @param to The recipient address
+    /// @param amount The number of tokens to mint
     function mint(address to, uint256 amount) public onlyOwner whenNotPaused {
         _mint(to, amount);
         emit Minted(to, amount);
     }
 
-/// @notice Burns tokens from the caller's balance
-/// @param amount The number of tokens to burn
+    /// @notice Burns tokens from the caller's balance
+    /// @param amount The number of tokens to burn
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
         emit Burned(msg.sender, amount);
     }
 
-    function transfer(address to, uint256 amount) public override whenNotPaused returns (bool) {
+    function transfer(
+        address to,
+        uint256 amount
+    ) public override whenNotPaused returns (bool) {
         require(amount <= transferLimit, "Exceeds transfer limit");
         return super.transfer(to, amount);
     }
 
-// Maximum tokens per transfer
+    // Maximum tokens per transfer
     function setTransferLimit(uint256 newLimit) public onlyOwner {
         transferLimit = newLimit;
     }
