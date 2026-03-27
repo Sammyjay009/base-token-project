@@ -15,7 +15,8 @@ contract Vault {
     }
 
     function deposit(uint256 amount) public {
-        token.transferFrom(msg.sender, address(this), amount);
+    token.transferFrom(msg.sender, address(this), amount);
+    balances[msg.sender] += amount;
     }
 }
 
