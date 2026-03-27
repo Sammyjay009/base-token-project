@@ -25,6 +25,14 @@ await tx.wait();
 document.getElementById("status").textContent = "Success!";
 <input id="depositAmount" type="number" placeholder="Amount to deposit" />
 <button id="depositBtn">Deposit</button>
+document.getElementById("depositBtn").onclick = async () => {
+  const amount = ethers.parseEther(document.getElementById("depositAmount").value);
+  const approveTx = await token.approve(VAULT_ADDRESS, amount);
+  await approveTx.wait();
+  const depositTx = await vault.deposit(amount);
+  await depositTx.wait();
+  alert("Deposited!");
+};
 
 <script>
   async function updateBalance(address) {
