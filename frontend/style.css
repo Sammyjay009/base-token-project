@@ -5,3 +5,7 @@ input { padding: 8px; margin: 8px 0; width: 100%; }
   body { margin: 20px auto; }
   button { width: 100%; }
 }
+const network = await provider.getNetwork();
+if (network.chainId !== 84532n) {
+  document.getElementById("status").textContent = "Please switch to Base Sepolia";
+}
