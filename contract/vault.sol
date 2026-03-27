@@ -30,3 +30,6 @@ function withdraw(uint256 amount) public {
 }
 
 mapping(address => uint256) public balances;
+
+event Deposited(address indexed user, uint256 amount);
+event Withdrawn(address indexed user, uint256 amount);
