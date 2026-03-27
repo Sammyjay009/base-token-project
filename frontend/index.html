@@ -42,6 +42,12 @@ document.getElementById("withdrawBtn").onclick = async () => {
   alert("Withdrawn!");
 };
 <button id="switchNetwork">Switch to Base Sepolia</button>
+document.getElementById("switchNetwork").onclick = async () => {
+  await window.ethereum.request({
+    method: "wallet_switchEthereumChain",
+    params: [{ chainId: "0x14a34" }],
+  });
+};
 
 <script>
   async function updateBalance(address) {
