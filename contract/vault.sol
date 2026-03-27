@@ -25,8 +25,7 @@ contract Vault {
 /// @notice Withdraws tokens from the vault
 /// @param amount Number of tokens to withdraw
 function withdraw(uint256 amount) public {
-    require(balances[msg.sender] >= amount, "Insufficient balance");
-    balances[msg.sender] -= amount;
+    require(balances[msg.sender] >= amount, "Vault: amount exceeds deposited balance");
     token.transfer(msg.sender, amount);
 }
 
