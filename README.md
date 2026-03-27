@@ -19,6 +19,16 @@ A simple ERC-20 token and Vault contract deployed on Base (Ethereum L2).
 3. Copy `.env.example` to `.env` and fill in your private key
 4. Run `npx hardhat compile`
 
+## Usage
+```js
+// Mint tokens (owner only)
+await token.mint("0xYourAddress", ethers.parseEther("100"));
+
+// Deposit into Vault
+await token.approve(vaultAddress, ethers.parseEther("50"));
+await vault.deposit(ethers.parseEther("50"));
+```
+
 ## Deployments
 
 | Network | Address |
