@@ -11,12 +11,8 @@
   <button id="connectBtn">Connect Wallet</button>
 <p id="walletAddress">Not connected</p>
 <p>Balance: <span id="balance">-</span></p>
-const TOKEN_ADDRESS = "0xYourTokenAddress";
-const provider = new ethers.BrowserProvider(window.ethereum);
-const signer = await provider.getSigner();
-const token = new ethers.Contract(TOKEN_ADDRESS, tokenABI, signer);
-const bal = await token.balanceOf(await signer.getAddress());
-document.getElementById("balance").textContent = ethers.formatEther(bal);
+<input id="mintAmount" type="number" placeholder="Amount to mint" />
+<button id="mintBtn">Mint</button>
 
 <script>
   document.getElementById("connectBtn").onclick = async () => {
